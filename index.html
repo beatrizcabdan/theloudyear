@@ -1,12 +1,54 @@
 <!DOCTYPE html>
 <html>
 <head>
+<style>
+p {color: blue; border: solid 1pt red;}
+</style>
+
 <title>Page Title</title>
 </head>
 <body>
+  
+<p id="card">Click the button to start the game!</p>
+  
+<button id='btn' type="button">Next card</button>
 
-<h1>My First Heading</h1>
-<p>My first paragraph.</p>
+<script>
+function shuffle(array) {
+  let currentIndex = array.length,  randomIndex;
+  while (currentIndex != 0) {
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex--;
+    [array[currentIndex], array[randomIndex]] = [
+      array[randomIndex], array[currentIndex]];
+  }
+  return array;
+}
 
+var i = 0
+var spring = ["spring:first card", "spring:second card", "spring:third card", "spring:fourth card"];
+var summer = ["summer:first card", "summer:second card", "summer:third card", "summer:fourth card"];
+var autumn = ["autumn:first card", "autumn:second card", "autumn:third card", "autumn:fourth card"];
+var winter = ["winter:first card", "winter:second card", "winter:third card", "winter:fourth card"];
+var arr = []
+
+window.onload = function() {
+  shuffle(spring);
+  shuffle(summer);
+  shuffle(autumn);
+  shuffle(winter);
+  arr = spring.concat(summer, autumn, winter);
+  console.log(arr);  
+};
+  
+document.getElementById('btn').onclick = function() {
+  text = "Game over"
+  if (arr.length > i) text = arr[i]
+  document.getElementById('card').innerHTML = text;
+  i += 1;
+}
+
+</script>
+  
 </body>
 </html>
