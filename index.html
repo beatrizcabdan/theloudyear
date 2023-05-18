@@ -2,16 +2,67 @@
 <html>
 <head>
 <style>
-p {color: blue; border: solid 1pt red;}
+p {color: brown; }
+.card {
+	background-color: #DFDECC; 
+    color: #ffc000;
+    font-size: 18px;
+    background: radial-gradient(circle, #DFDECC, #DDDDAA);
+    border-top: 4px ridge #ffb000;
+    border-left: 4px groove #ffb000;
+    border-right: 4px ridge #ffb000;
+    border-bottom: 4px groove #ffb000;
+    box-shadow: inset 0px 0px 5px 3px rgba(1,1,1,0.3);
+    
+	position: fixed;
+    width: 90%;
+    height: 90%;
+    left: 5%;
+    top: 5%;
+    text-align: center;
+    z-index: -1;
+    }
+    
+.btn-home{
+  margin: 10px auto;
+  width: 250px;
+  letter-spacing: 2px;
+  border-radius: 8px;
+  color: #ffc000;
+  font-size: 18px;
+  font-weight: 400;
+  text-shadow: 0 1px 3px #000;
+  text-align: center;
+  padding: 10px 0;
+  background: radial-gradient(circle, #8b0000, #8b0000);
+  border-top: 4px ridge #ffb000;
+  border-left: 4px groove #ffb000;
+  border-right: 4px ridge #ffb000;
+  border-bottom: 4px groove #ffb000;
+  box-shadow: inset 0px 0px 5px 3px rgba(1,1,1,0.3);
+}
+
+.btn-home:hover{
+  background: radial-gradient(circle, #e52b2b, #8b0000);
+  box-shadow: 0px 0 5px 5px rgba(255,255,255,0.2)
+}
+
+.btn-home:active{
+  background: radial-gradient(circle, #ec6a6a, #e52b2b);
+  box-shadow: 0px 0 5px 5px rgba(255,255,255,0.2)
+}
 </style>
 
 <title>Page Title</title>
 </head>
-<body>
+<body style="background-color: black;">
   
+<div class="card">
 <p id="card">Click the button to start the game!</p>
-  
-<button id='btn' type="button">Next card</button>
+
+<button id='prev' class="btn-home" type="button" style="position: fixed;bottom: 10%;left: 10%;">Previous card</button>
+<button id='btn' class="btn-home" type="button" style="position: fixed;bottom: 10%;right: 10%;">Next card</button>
+</div>
 
 <script>
 function shuffle(array) {
@@ -25,8 +76,8 @@ function shuffle(array) {
   return array;
 }
 
-var i = 0
-var spring = ["spring:first card", "spring:second card", "spring:third card", "spring:fourth card"];
+var i = -1
+var spring = ["spring:<strong>first</strong> card", "spring:second card", "spring:third card", "spring:fourth card"];
 var summer = ["summer:first card", "summer:second card", "summer:third card", "summer:fourth card"];
 var autumn = ["autumn:first card", "autumn:second card", "autumn:third card", "autumn:fourth card"];
 var winter = ["winter:first card", "winter:second card", "winter:third card", "winter:fourth card"];
@@ -41,11 +92,21 @@ window.onload = function() {
   console.log(arr);  
 };
   
+document.getElementById('prev').onclick = function() {
+  text = "Click the button to start the game!"
+  if (i > 0) {
+    i -= 1;
+  	text = arr[i];
+  }
+  document.getElementById('card').innerHTML = text;
+}
+
 document.getElementById('btn').onclick = function() {
   text = "Game over"
+  i += 1;
   if (arr.length > i) text = arr[i]
   document.getElementById('card').innerHTML = text;
-  i += 1;
+
 }
 
 </script>
