@@ -5,16 +5,7 @@
 p {color: brown; }
 .card {
 	background-color: #DFDECC; 
-    color: #ffc000;
-
-    background: radial-gradient(circle, #DFDECC, #DDDDAA);
-    border-top: 4px ridge #ffb000;
-    border-left: 4px groove #ffb000;
-    border-right: 4px ridge #ffb000;
-    border-bottom: 4px groove #ffb000;
-    box-shadow: inset 0px 0px 5px 3px rgba(1,1,1,0.3);
-    font-family: 'Times New Roman', Times, serif;
-  font-size: 40px;	
+    color: #8f6f3b;	
 	position: fixed;
     width: 90%;
     height: 90%;
@@ -22,36 +13,28 @@ p {color: brown; }
     top: 5%;
     text-align: center;
     z-index: -1;
-    }
+    
+    background-color: #f7e3c7;
+    border: 3px solid #8f6f3b;
+    background-image: linear-gradient(45deg, #fae3c7, #f7e3bb);
+    border-radius: 10px;
+    text-align: center;
+  }
     
 .btn-home{
-  margin: 10px auto;
-  width: 250px;
-  letter-spacing: 2px;
-  border-radius: 8px;
-  color: #ffc000;
-  text-shadow: 0 1px 3px #000;
-  font-family: 'Times New Roman', Times, serif;
-  font-size: 40px;
-  text-align: center;
-  padding: 10px 0;
-  background: radial-gradient(circle, #8b0000, #8b0000);
-  border-top: 4px ridge #ffb000;
-  border-left: 4px groove #ffb000;
-  border-right: 4px ridge #ffb000;
-  border-bottom: 4px groove #ffb000;
-  box-shadow: inset 0px 0px 5px 3px rgba(1,1,1,0.3);
+  padding: 10px;
+  text-transform: uppercase;
+  border: none;
+  background-color: #8f6f3b;
+  color: #fff;
+  transition: background-color 0.3s, color 0.3s;
+  border-radius: 10px;
+  background-image: linear-gradient(to bottom, #b38146, #8f6f3b);
+  box-shadow: 0px 3px 0px 0px rgba(0, 0, 0, 0.3);
 }
 
-.btn-home:hover{
-  background: radial-gradient(circle, #e52b2b, #8b0000);
-  box-shadow: 0px 0 5px 5px rgba(255,255,255,0.2)
-}
-
-.btn-home:active{
-  background: radial-gradient(circle, #ec6a6a, #e52b2b);
-  box-shadow: 0px 0 5px 5px rgba(255,255,255,0.2)
-}
+.card, .btn-home {font-family: 'Times New Roman', Times, serif;
+  	font-size: 7vh;}
 </style>
 
 <title>Page Title</title>
@@ -61,7 +44,7 @@ p {color: brown; }
 <div class="card">
 <p id="card">Click the button to start the game!</p>
 
-<button id='prev' class="btn-home" type="button" style="position: fixed;bottom: 10%;left: 10%;">Previous card</button>
+<button id='prev' class="btn-home" type="button" style="position: fixed;bottom: 10%;left: 10%;">Previous</button>
 <button id='btn' class="btn-home" type="button" style="position: fixed;bottom: 10%;right: 10%;">Next card</button>
 </div>
 
